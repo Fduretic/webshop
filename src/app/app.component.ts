@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {faShoppingCart} from '@fortawesome/free-solid-svg-icons/faShoppingCart';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'web-shop';
+  public title = 'web-shop';
+  public faCart = faShoppingCart;
+  public showCart: boolean;
+
+  constructor() {
+    this.showCart = false;
+  }
+
+  public toggleCart(): void {
+    this.showCart = !this.showCart;
+  }
 }
