@@ -10,15 +10,17 @@
     <div class="login-wrapper">
       <div class="input-group mr-3">
         <input type="email"
+               [(ngModel)]="email"
                class="form-control"
                placeholder="e-mail">
       </div>
       <div class="input-group mr-3">
         <input type="password"
+               [(ngModel)]="password"
                class="form-control"
                placeholder="password">
       </div>
-      <button class="btn btn-primary mr-3">Log In</button>
+      <button class="btn btn-primary mr-3" (click)="logIn()">Log In</button>
       <button class="btn btn-primary">Register</button>
     </div>
   </div>
