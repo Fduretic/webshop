@@ -10,6 +10,11 @@ export class CartPreviewComponent implements OnInit {
 
   public items: WebShopItem[];
 
+  get sum() {
+    return this.items.map(x => x.price).reduce((a, b) => a + b, 0);
+   
+}
+
   constructor() {
 
     this.items = [
@@ -50,9 +55,13 @@ export class CartPreviewComponent implements OnInit {
         price: 439.99
       }
     ];
+    
   }
+  
+   
 
   ngOnInit(): void {
   }
+  
 
 }

@@ -1,3 +1,21 @@
 <div class="cart-wrapper">
-<p>..Sadržaj kolica...</p>
+  <div class="heading">
+    <h1 class="h1-text"><span class="shopper">A</span> Shopping Cart</h1>
+  </div>
+
+  <div class="basket-labels">
+    <div *ngFor="let item of items" class="items">
+      <div class="item-heading">
+        <h1 class="item-text">{{ item.label }}</h1>
+      </div>
+      <div class="item-price">
+        <h1 class="item-textprice">
+          {{ item.price }} <span class="price-hrk">hrk</span>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="total">
+    <h1 class="h1-text">Total: {{ sum }} <span class="price-hrk">hrk</span></h1>
+  </div>
 </div>
