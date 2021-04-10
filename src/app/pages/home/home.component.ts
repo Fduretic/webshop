@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import {Component, OnInit} from '@angular/core';
 import {WebShopItem} from '../../models/items.model';
 
