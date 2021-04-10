@@ -1,5 +1,5 @@
 export interface WebShopItem {
-  category?: string;
+  category?: CategoryModel;
   description?: string;
   discountPercentage?: number;
   id: string;
@@ -11,4 +11,10 @@ export interface WebShopItem {
 export interface ItemOption {
   id: string;
   name: string;
+}
+
+export interface CategoryModel {
+  id: string;
+  name: string;
+  iconId?: string;
 }
