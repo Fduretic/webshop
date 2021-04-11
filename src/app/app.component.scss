@@ -21,6 +21,9 @@
     background-color: #253646;
     color: white;
     font-weight: 600;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
   }
 
 
@@ -39,9 +42,10 @@
       height: calc(100% - 60px);
       width: 35px;
       background-color: #ececec;
-      position: absolute;
+      position: fixed;
       overflow: hidden;
       right: 0px;
+      top: 60px;
 
       .icon:hover {
         cursor: pointer;
