@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {User} from '../models/user.model';
 import {tap} from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
 
   user = new Subject<User>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -31,5 +32,6 @@ export class AuthService {
 
   public logOut() {
     this.user.next(null);
+    this.router.navigate(['/home'])
   }
 }

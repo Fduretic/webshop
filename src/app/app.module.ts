@@ -9,13 +9,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {ItemsService} from './services/items.service';
+import { UserComponent } from './pages/user/user.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CartPreviewComponent
+    CartPreviewComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
