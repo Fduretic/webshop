@@ -21,7 +21,9 @@
                placeholder="password">
       </div>
       <button class="btn btn-primary mr-3" (click)="logIn()">Log In</button>
-      <button class="btn btn-primary">Register</button>
+      <button class="btn btn-primary" >
+        <a routerLink="/registration" routerLinkActive="Active">Register</a>
+      </button>
     </div>
   </div>
   <div class="content">
@@ -40,6 +42,17 @@
       </fa-icon>
       <fa-icon class="icon m-2"
                [icon]="faUser"
+               [size]="'1x'">
+      </fa-icon>
+    </div>
+    <div class="left-toolbar">
+      <app-categories 
+        class="cat-preview"
+        *ngIf="showCat">
+      </app-categories>
+      <fa-icon (click)="toggleCat()"
+                class="icon m-2"
+               [icon]="faBars"
                [size]="'1x'">
       </fa-icon>
     </div>

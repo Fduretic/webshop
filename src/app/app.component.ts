@@ -3,6 +3,7 @@ import {faShoppingCart} from '@fortawesome/free-solid-svg-icons/faShoppingCart';
 import {AuthService} from './services/auth.service';
 import {Router} from '@angular/router';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
+import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
 import {CategoryModel} from './models/items.model';
 
 @Component({
@@ -14,7 +15,9 @@ export class AppComponent implements OnInit {
   public title = 'web-shop';
   public faCart = faShoppingCart;
   public faUser = faUser;
+  public faBars = faBars;
   public showCart: boolean;
+  public showCat: boolean;
   public isAuthenticated: boolean;
   public email: string;
   public password: string;
@@ -25,6 +28,7 @@ export class AppComponent implements OnInit {
     this.categories = [];
     this.showCart = false;
     this.isAuthenticated = false;
+    this.showCat = false;
   }
 
   ngOnInit(): void {
@@ -44,5 +48,9 @@ export class AppComponent implements OnInit {
 
   public toggleCart(): void {
     this.showCart = !this.showCart;
+  }
+
+  public toggleCat(): void {
+    this.showCat = !this.showCat;
   }
 }
