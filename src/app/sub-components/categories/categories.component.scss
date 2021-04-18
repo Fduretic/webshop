@@ -1,0 +1,68 @@
+.filters {
+border: 3px;
+border-radius: 0.5rem;
+width: 210px;
+margin: 2px 0px 0px 2px;
+justify-content: center;
+background:  #f7f7f7;
+}
+
+.heading {
+    text-align: center;
+    height: 45px;
+    width: 205px;
+    background: #253646;
+    border-radius: 0.5rem;
+    color: #f7f7f7;
+    align-items: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.input-group {
+    width: 200px;
+    
+}
+
+.input-text {
+    width: 208px;
+    align-content: center;
+    margin-right: 0px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    margin: 10px;
+    cursor:pointer;
+    color:#FFF;
+    font-size:1em;
+    border:1px solid #eee;
+    border-radius:4px;
+    line-height:1.5em;
+    border:1px solid #aaa;
+    text-decoration:none;
+
+    -webkit-transition: all 0.3s linear;
+     -khtml-transition: all 0.3s linear;
+       -moz-transition: all 0.3s linear;
+         -o-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+
+}
+
+.btn:hover{
+-webkit-box-shadow:rgba(0,0,0,0.7) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -khtml-box-shadow:rgba(0,0,0,0.7) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+      -moz-box-shadow:rgba(0,0,0,0.7) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+        -o-box-shadow:rgba(0,0,0,0.7) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+           box-shadow:rgba(0,0,0,0.7) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+
+
