@@ -10,6 +10,8 @@ import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {ItemsService} from './services/items.service';
 import { UserComponent } from './pages/user/user.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { CategoriesComponent } from './sub-components/categories/categories.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { UserComponent } from './pages/user/user.component';
     HomeComponent,
     CartPreviewComponent,
     UserComponent
+    RegistrationComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

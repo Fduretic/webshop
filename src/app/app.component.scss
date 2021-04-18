@@ -28,6 +28,7 @@
   .content {
     display: flex;
     margin-right: 35px;
+    margin-left: 35px;
 
     .main {
       flex: 1;
@@ -44,6 +45,20 @@
       overflow: hidden;
       right: 0px;
       top: 60px;
+    }
+
+    .left-toolbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: calc(100% - 60px);
+      width: 35px;
+      background-color: #ececec;
+      position: fixed;
+      overflow: hidden;
+      left: 0px;
+      top: 60px;
+      }
 
       .icon:hover {
         cursor: pointer;
@@ -54,6 +69,12 @@
         position: fixed;
         right: 40px;
       }
-    }
+
+      .cat-preview {
+        position: fixed;
+        left: 40px;
+      }
+    
   }
 }
+
