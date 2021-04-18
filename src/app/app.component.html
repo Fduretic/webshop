@@ -9,17 +9,37 @@
     <div class="spacer"></div>
     <div class="login-wrapper">
       <div class="input-group mr-3">
-        <input type="email"
-               [(ngModel)]="email"
-               class="form-control"
-               placeholder="e-mail">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          class="form-control"
+          placeholder="e-mail"
+        />
       </div>
       <div class="input-group mr-3">
-        <input type="password"
-               [(ngModel)]="password"
-               class="form-control"
-               placeholder="password">
+        <input
+          type="password"
+          [(ngModel)]="password"
+          class="form-control"
+          placeholder="password"
+        />
       </div>
+      <button
+        class="btn btn-primary mr-3"
+        (click)="logIn()"
+        *ngIf="!isAuthenticated"
+      >
+        Log In
+      </button>
+      <button class="btn btn-primary" *ngIf="!isAuthenticated">Register</button>
+    </div>
+    <div>
+      <button
+        class="btn btn-primary mr-3"
+        *ngIf="isAuthenticated"
+        (click)="onlogOut()"
+      >
+        Logout
       <button class="btn btn-primary mr-3" (click)="logIn()">Log In</button>
       <button class="btn btn-primary" >
         <a routerLink="/registration" routerLinkActive="Active">Register</a>
@@ -31,19 +51,19 @@
       <router-outlet></router-outlet>
     </div>
     <div class="right-toolbar">
-      <app-cart-preview
-        class="cart-preview"
-        *ngIf="showCart">
+      <app-cart-preview class="cart-preview" *ngIf="showCart">
       </app-cart-preview>
-      <fa-icon (click)="toggleCart()"
-               class="icon m-2"
-               [icon]="faCart"
-               [size]="'1x'">
+      <fa-icon
+        (click)="toggleCart()"
+        class="icon m-2"
+        [icon]="faCart"
+        [size]="'1x'"
+      >
       </fa-icon>
-      <fa-icon class="icon m-2"
-               [icon]="faUser"
-               [size]="'1x'">
-      </fa-icon>
+
+      <a class="button" routerLink="/user" *ngIf="isAuthenticated">
+        <fa-icon class="icon m-2" [icon]="faUser" [size]="'1x'"> </fa-icon>
+      </a>
     </div>
     <div class="left-toolbar">
       <app-categories 

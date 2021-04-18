@@ -38,13 +38,19 @@ export class AppComponent implements OnInit {
   }
 
   public logIn() {
+    
     this.authService.logIn(this.email, this.password).subscribe(
-      response => {
+      response => { this.router.navigate(['/user'])
       }, error => {
         console.log(error);
       }
     );
   }
+
+  onlogOut() {
+    this.authService.logOut();
+  }
+
 
   public toggleCart(): void {
     this.showCart = !this.showCart;

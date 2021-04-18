@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {ItemsService} from './services/items.service';
+import { UserComponent } from './pages/user/user.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { CategoriesComponent } from './sub-components/categories/categories.component';
 
@@ -18,6 +19,7 @@ import { CategoriesComponent } from './sub-components/categories/categories.comp
     AppComponent,
     HomeComponent,
     CartPreviewComponent,
+    UserComponent
     RegistrationComponent,
     CategoriesComponent
   ],
