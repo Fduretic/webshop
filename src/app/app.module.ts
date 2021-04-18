@@ -19,7 +19,7 @@ import { CategoriesComponent } from './sub-components/categories/categories.comp
     AppComponent,
     HomeComponent,
     CartPreviewComponent,
-    UserComponent
+    UserComponent,
     RegistrationComponent,
     CategoriesComponent
   ],
