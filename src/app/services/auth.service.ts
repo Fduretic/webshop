@@ -1,37 +1,41 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
-import {User} from '../models/user.model';
-import {tap} from 'rxjs/operators';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  user = new Subject<User>();
+  public user = new Subject<any>();
 
-  constructor(private http: HttpClient, private router: Router) {
-
+  constructor(private http: HttpClient,
+              private router: Router,
+              private fireAuth: AngularFireAuth) {
   }
 
-  public logIn(email: string, password: string) {
-    return this.http.post<any>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC8eDSC9UeIWcgaclzqpUdpPV6j2Uc8BHw', {
-      email,
-      password,
-      returnSecureToken: true
-    }).pipe(
-      tap(response => {
-        const expirationDate = new Date(new Date().getTime() + +response.expiresIn * 1000);
-        const user = new User(response.email, response.localId, response.idToken, expirationDate);
-        this.user.next(user);
-      })
-    );
+  public login(email: string, password: string): Promise<any> {
+    return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
 
-  public logOut() {
-    this.user.next(null);
-    this.router.navigate(['/home'])
+  public logOut(): Promise<any> {
+    this.assignUser(null);
+    this.router.navigate(['/home']);
+    return this.fireAuth.signOut();
+  }
+
+  public register(email: string, password: string): Promise<any> {
+    // HINT: Ova funkcija vraća tip podatka Promise (Sličan je Subject tipu). Pogledati kako se već koristi
+    //       u projektu. Ako bude nedoumica, pitati Google. Ako i dalje bude pitanja, slobodno cimnite @Fduretic
+    return this.fireAuth.createUserWithEmailAndPassword(email, password);
+  }
+
+  public assignUser(user: any) {
+    // Ova funkcija putem user BehaviorSubject-a odašilje vrijednost koju prima kao parametar
+    // Na primjer kada se korisnik ulogira, odašilje podatke usera koje primi u response-u
+    // ili na sign out šalje null vrijednost, tj. poništava vrijednost koju trenutno ima spremljenu
+    this.user.next(user);
   }
 }

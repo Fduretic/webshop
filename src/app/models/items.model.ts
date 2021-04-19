@@ -8,6 +8,7 @@ export interface WebShopItem {
   price: number;
 }
 
+// Na primjer boja ili veličina proizvoda:
 export interface ItemOption {
   id: string;
   name: string;

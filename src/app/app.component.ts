@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faShoppingCart} from '@fortawesome/free-solid-svg-icons/faShoppingCart';
 import {AuthService} from './services/auth.service';
-import {Router} from '@angular/router';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
 import {CategoryModel} from './models/items.model';
@@ -23,8 +22,7 @@ export class AppComponent implements OnInit {
   public password: string;
   categories: CategoryModel[];
 
-  constructor(private authService: AuthService,
-              private router: Router) {
+  constructor(private authService: AuthService) {
     this.categories = [];
     this.showCart = false;
     this.isAuthenticated = false;
@@ -38,19 +36,21 @@ export class AppComponent implements OnInit {
   }
 
   public logIn() {
-    
-    this.authService.logIn(this.email, this.password).subscribe(
-      response => { this.router.navigate(['/user'])
-      }, error => {
-        console.log(error);
-      }
-    );
+    this.authService.login(this.email, this.password).then(
+      (res) => {
+        this.password = '';
+        this.email = '';
+        this.authService.assignUser(res);
+        console.log(res);
+      });
   }
 
   onlogOut() {
-    this.authService.logOut();
+    this.authService.logOut().then(
+      (res) => {
+        console.log(res);
+      });
   }
-
 
   public toggleCart(): void {
     this.showCart = !this.showCart;
