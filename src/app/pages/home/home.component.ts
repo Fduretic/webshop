@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { ItemsService } from 'src/app/services/items.service';
 import {WebShopItem} from '../../models/items.model';
 
 @Component({
@@ -10,10 +11,20 @@ export class HomeComponent implements OnInit {
 
   public items: WebShopItem[];
 
-  constructor() {
-    this.items = [];
+  constructor( private itemsService: ItemsService) {
+
+   this.items = []
+    
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
+
+  onAddToCart(item: WebShopItem) {
+    this.itemsService.addItem(item);
+  }
+
+ 
+
 }
