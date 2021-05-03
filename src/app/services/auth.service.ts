@@ -17,7 +17,9 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Promise<any> {
+    
     return this.fireAuth.signInWithEmailAndPassword(email, password);
+    
   }
 
   public logOut(): Promise<any> {
@@ -29,6 +31,7 @@ export class AuthService {
   public register(email: string, password: string): Promise<any> {
     // HINT: Ova funkcija vraća tip podatka Promise (Sličan je Subject tipu). Pogledati kako se već koristi
     //       u projektu. Ako bude nedoumica, pitati Google. Ako i dalje bude pitanja, slobodno cimnite @Fduretic
+    this.router.navigate(['/home']);
     return this.fireAuth.createUserWithEmailAndPassword(email, password);
   }
 

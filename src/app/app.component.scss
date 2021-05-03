@@ -12,6 +12,10 @@
   .spacer {
     flex: 1;
   }
+  a {
+    text-decoration: none;
+    color: white;
+  }
 
   .toolbar {
     height: 60px;
@@ -59,23 +63,21 @@
       overflow: hidden;
       left: 0px;
       top: 60px;
-      }
+    }
 
-      .icon:hover {
-        cursor: pointer;
-        color: #47515a;
-      }
+    .icon:hover {
+      cursor: pointer;
+      color: #47515a;
+    }
 
-      .cart-preview {
-        position: fixed;
-        right: 40px;
-      }
+    .cart-preview {
+      position: fixed;
+      right: 40px;
+    }
 
-      .cat-preview {
-        position: fixed;
-        left: 40px;
-      }
-    
+    .cat-preview {
+      position: fixed;
+      left: 40px;
+    }
   }
 }
-

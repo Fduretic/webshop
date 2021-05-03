@@ -1,10 +1,14 @@
-<div class="cart-wrapper">
+<div *ngIf="itemsList.length === 0" class="alert alert-info">
+  Your Cart is Empty
+</div>
+
+<div *ngIf="itemsList.length > 0" class="cart-wrapper">
   <div class="heading">
     <h1 class="h1-text"><span class="shopper">A</span> Shopping Cart</h1>
   </div>
 
   <div class="basket-labels">
-    <div *ngFor="let item of items" class="items">
+    <div *ngFor="let item of itemsList" class="items">
       <div class="item-heading">
         <h1 class="item-text">{{ item.label }}</h1>
       </div>
@@ -16,6 +20,6 @@
     </div>
   </div>
   <div class="total">
-    <h1 class="h1-text">Total: {{ sum }} <span class="price-hrk">hrk</span></h1>
+    <h1 class="h1-text">{{ cartTotal }}<span class="price-hrk">hrk</span></h1>
   </div>
 </div>
