@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoryModel} from '../../models/items.model';
+import {CategoryModel, selectedCategory} from '../../models/items.model';
 
 @Component({
   selector: 'app-categories',
@@ -9,6 +9,7 @@ import {CategoryModel} from '../../models/items.model';
 export class CategoriesComponent implements OnInit {
 
   public categories: CategoryModel [];
+  public select: selectedCategory [];
 
   constructor() {
     this.categories = [
@@ -32,6 +33,21 @@ export class CategoriesComponent implements OnInit {
         name: 'Beauty',
         iconId: '',
       },
+    ]
+
+    this.select = [
+      {
+        id:'kch',
+        name:'Kuhinja',
+      },
+      {
+        id:'clt',
+        name:'Odjeća i obuća',
+      },
+      {
+        id:'bty',
+        name:'Beauty',
+      }
     ]
    }
 

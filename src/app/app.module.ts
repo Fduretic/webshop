@@ -13,6 +13,7 @@ import {UserComponent} from './pages/user/user.component';
 import {RegistrationComponent} from './pages/registration/registration.component';
 import {CategoriesComponent} from './sub-components/categories/categories.component';
 import {AngularFireModule} from '@angular/fire';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {AngularFireModule} from '@angular/fire';
     CartPreviewComponent,
     UserComponent,
     RegistrationComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
