@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { ItemsService } from 'src/app/services/items.service';
 import {WebShopItem} from '../../models/items.model';
 import { ItemsService } from "../../services/items.service";
 
@@ -21,5 +22,14 @@ export class HomeComponent implements OnInit {
     .subscribe((response) => this.items = response, 
     error => console.log(error));
       
+  constructor( private itemsService: ItemsService) {
+   this.items = []
+  }
+
+  ngOnInit() {
+  }
+
+  onAddToCart(item: WebShopItem) {
+    this.itemsService.addItem(item);
   }
 }
