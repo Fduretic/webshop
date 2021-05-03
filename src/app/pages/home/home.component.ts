@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { ItemsService } from 'src/app/services/items.service';
 import {WebShopItem} from '../../models/items.model';
-import { ItemsService } from "../../services/items.service";
+import {ItemsService} from '../../services/items.service';
 
 
 @Component({
@@ -12,21 +11,22 @@ import { ItemsService } from "../../services/items.service";
 export class HomeComponent implements OnInit {
 
   public items: WebShopItem[];
+  public selectedCategoryId: string;
 
-  constructor(private appService : ItemsService) {
+  constructor(private appService: ItemsService,
+              private itemsService: ItemsService) {
     this.items = [];
   }
 
   ngOnInit(): void {
     this.appService.getList()
-    .subscribe((response) => this.items = response, 
-    error => console.log(error));
-      
-  constructor( private itemsService: ItemsService) {
-   this.items = []
-  }
+      .subscribe((response) => {
+        this.items = response;
+      },
+        error => console.log(error));
 
-  ngOnInit() {
+    this.itemsService.activeFilterSubject.subscribe(
+      categoryId => this.selectedCategoryId = categoryId);
   }
 
   onAddToCart(item: WebShopItem) {

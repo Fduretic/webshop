@@ -1,18 +1,20 @@
 <div class="filters">
-    <div class="heading">
-        <h2>Filters</h2>
-    </div>
+  <div class="heading">
+    <h2>Filters</h2>
+  </div>
 
-    <div class="input-group mt-3 pl-2" >
-        
-        <select class="custom-select" id="inputGroupSelect01">
-          <option value="" *ngFor="let category of cate4gories" >{{ category.name }}</option>
-        </select> 
+  <div class="input-group mt-3 pl-2">
+
+    <div class="custom-select"
+         id="inputGroupSelect01">
+      <button *ngFor="let category of categories"
+              (click)="selectCategory(category)">{{ category.name }}</button>
     </div>
-    <div class="input-text p-2">
-        <input type="string" class="form-control">
-    </div>
-    <div class="button ">
-        <button class="btn btn-primary" type="submit">Filtriraj</button>
-    </div>
+  </div>
+  <!--<div class="input-text p-2">-->
+    <!--<input type="string" class="form-control">-->
+  <!--</div>-->
+  <div class="button ">
+    <button class="btn btn-primary" type="submit">Filtriraj</button>
+  </div>
 </div>

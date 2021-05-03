@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoryModel, selectedCategory} from '../../models/items.model';
+import {ItemsService} from '../../services/items.service';
 
 @Component({
   selector: 'app-categories',
@@ -10,8 +11,9 @@ export class CategoriesComponent implements OnInit {
 
   public categories: CategoryModel [];
   public select: selectedCategory [];
+  public selectedCategory: CategoryModel;
 
-  constructor() {
+  constructor(private itemsService: ItemsService) {
     this.categories = [
       {
         id: 'all',
@@ -19,39 +21,28 @@ export class CategoriesComponent implements OnInit {
         iconId: '',
       },
       {
-        id: 'clothes',
+        id: 'clt',
         name: 'Odjeća',
         iconId: '',
       },
       {
-        id: 'kitchen',
+        id: 'kch',
         name: 'Kuhinja',
         iconId: '',
       },
       {
-        id: 'beauty',
+        id: 'bty',
         name: 'Beauty',
         iconId: '',
       },
-    ]
-
-    this.select = [
-      {
-        id:'kch',
-        name:'Kuhinja',
-      },
-      {
-        id:'clt',
-        name:'Odjeća i obuća',
-      },
-      {
-        id:'bty',
-        name:'Beauty',
-      }
-    ]
-   }
+    ];
+  }
 
   ngOnInit(): void {
   }
 
+  public selectCategory(category: CategoryModel): void {
+    this.selectedCategory = category;
+    this.itemsService.changeFilter(category);
+  }
 }

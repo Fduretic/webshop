@@ -1,25 +1,26 @@
 <div class="home-content">
-  <div *ngFor="let item of items" class="item-card shadow-sm">
-    <div class="card-header">{{ item.label }}</div>
-    <img src="" alt="">
-    <div class="card-body">
-      <p class="card-text">{{ item.description }}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <button
-            type="button"
-            class="btn btn-xsm btn-outline-secondary"
-            (click)="onAddToCart(item)"
-          >
-            Add to Cart
-          </button>
-          <button type="button" class="btn btn-xsm btn-outline-secondary">
-            View Details
-          </button>
+  <div *ngFor="let item of items">
+    <div class="item-wrapper item-card shadow-sm" *ngIf="item.category.id === selectedCategoryId ||
+    selectedCategoryId === 'all' ||
+    !selectedCategoryId">
+      <div class="card-header">{{ item.label }}</div>
+      <img src="" alt="">
+      <div class="card-body">
+        <p class="card-text">{{ item.description }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-xsm btn-outline-secondary"
+              (click)="onAddToCart(item)">
+              Add to Cart
+            </button>
+            <button type="button" class="btn btn-xsm btn-outline-secondary">
+              View Details
+            </button>
+          </div>
+          <small class="text-muted">{{ item.price }}<span class="price-hrk">hrk</span></small>
         </div>
-        <small class="text-muted"
-          >{{ item.price }} <span class="price-hrk">hrk</span></small
-        >
       </div>
     </div>
   </div>
