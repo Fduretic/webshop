@@ -19,3 +19,8 @@ export interface CategoryModel {
   name: string;
   iconId?: string;
 }
+
+export interface selectedCategory {
+  id:string;
+  name:string;
+}
